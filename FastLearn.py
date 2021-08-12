@@ -2,10 +2,13 @@ from tkinter import *
 import wikipedia
 import nltk
 from time import sleep
+from tkinter import filedialog
 
-learning_data = "This is a test! To run real learning data, upload your file"
+learning_data = "This is a test! To run real learning data, upload your learning-package"
 learning_data = nltk.word_tokenize(learning_data)
 print (len(learning_data))
+
+root = Tk()
 
 #Set your desired FPS
 FPS = 60
@@ -33,10 +36,9 @@ class Window(Frame):
         file = Menu(menu)
 
         menu.add_cascade(label='File', menu=file)
-        file.add_command(label='Run', command=self.client_exit)
-        file.add_command(label='Run Test', command=self.showText)
+        file.add_command(label='Run Learning Test', command=self.showText)
         file.add_command(label='Exit', command=self.client_exit)
-        file.add_command(label='Upload Data', command=self.client_exit)
+        file.add_command(label='Upload Learning Package', command=self.open_file)
 
         help_menu = Menu(menu)
         menu.add_cascade(label='About', menu=help_menu)
@@ -62,13 +64,54 @@ class Window(Frame):
             var.set(i)
             root.update_idletasks()
             
+        sleep(2)
+        text_data.destroy()
 
 
     def client_exit(self):
+        
         exit()
 
 
-root = Tk()
+    def tokenize(self, learning_package):
+
+        self.learning_tokens = nltk.word_tokenize(learning_package)
+        print(self.learning_tokens)
+        self.run_learning_package()
+
+
+    def open_file(self):
+        
+        filepath = filedialog.askopenfilename(filetypes=(('text files', 'txt'),))
+        print(filepath)
+
+        self.learning_package = open(filepath, 'r')
+        self.learning_package = self.learning_package.read()
+
+        self.tokenize(self.learning_package)
+
+    def run_learning_package(self):
+
+        var = StringVar()
+        token_data = Label(root,
+                          textvariable = var,
+                          font="Times 64",
+                          bg="#564C4D",
+                          width=16,
+                          height=8,
+                          anchor="center")
+
+        token_data.pack()
+        sleep (1)
+        
+        for i in (self.learning_tokens):
+            sleep (frame_rate)
+            var.set(i)
+            root.update_idletasks()
+            
+        sleep(2)
+        token_data.destroy()
+
 
 
 w = 1200 # width of the window

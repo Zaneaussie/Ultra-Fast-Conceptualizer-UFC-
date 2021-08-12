@@ -28,7 +28,7 @@ class Window(Frame):
 
     def init_window(self):
 
-        self.master.title('Ultra-Conceptualizer')
+        self.master.title('Ultra-Fast-Conceptualizer')
         self.pack(fill=BOTH, expand =1)
         
         menu = Menu(self.master)
@@ -38,7 +38,7 @@ class Window(Frame):
         menu.add_cascade(label='File', menu=file)
         file.add_command(label='Run Learning Test', command=self.showText)
         file.add_command(label='Exit', command=self.client_exit)
-        file.add_command(label='Upload Learning Package', command=self.open_file)
+        file.add_command(label='Run Learning Package', command=self.open_file)
 
         help_menu = Menu(menu)
         menu.add_cascade(label='About', menu=help_menu)

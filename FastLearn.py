@@ -54,7 +54,7 @@ class Window(Frame):
         text_data = Label(root,
                           textvariable = var,
                           font="Times 64",
-                          bg="#564C4D",
+                          bg="##564C4D",
                           width=16,
                           height=8,
                           anchor="center")
@@ -96,7 +96,7 @@ class Window(Frame):
         token_data = Label(root,
                           textvariable = var,
                           font="Times 64",
-                          bg="#564C4D",
+                          bg="##564C4D",
                           width=16,
                           height=8,
                           anchor="center",)

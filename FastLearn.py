@@ -1,4 +1,3 @@
-
 from tkinter import *
 import wikipedia
 import nltk
@@ -11,12 +10,13 @@ learning_data = nltk.word_tokenize(learning_data)
 
 root = Tk()
 
-#Set your desired FPS
-FPS = 80
+#Set your desired words p/min
+words_per_min = 100
 
-frame_rate = len(learning_data)/FPS
-words_per_min = (FPS/1000)
-print('Words p/min', words_per_min)
+words_per_sec = words_per_min/60
+words_per_sec = 1/words_per_sec
+print(words_per_sec)
+
 
 class Window(Frame):
 
@@ -54,7 +54,7 @@ class Window(Frame):
         text_data = Label(root,
                           textvariable = var,
                           font="Times 64",
-                          bg="##564C4D",
+                          bg="#564C4D",
                           width=16,
                           height=8,
                           anchor="center")
@@ -62,7 +62,7 @@ class Window(Frame):
         sleep (1)
 
         for i in (learning_data):
-            sleep (frame_rate)
+            sleep (words_per_sec)
             var.set(i)
             root.update_idletasks()
             
@@ -96,7 +96,7 @@ class Window(Frame):
         token_data = Label(root,
                           textvariable = var,
                           font="Times 64",
-                          bg="##564C4D",
+                          bg="#564C4D",
                           width=16,
                           height=8,
                           anchor="center",)
@@ -105,7 +105,7 @@ class Window(Frame):
         sleep (1)
         
         for i in (self.learning_tokens):
-            sleep (frame_rate)
+            sleep (words_per_sec)
             var.set(i)
             root.update_idletasks()
 
@@ -136,7 +136,6 @@ root.geometry('%dx%d+%d+%d'% (w, h, x, y))
 
 app = Window(root)
 root.mainloop()
-
 
 
 

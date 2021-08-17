@@ -55,6 +55,7 @@ class Window(Frame):
                           textvariable = var,
                           font="Times 64",
                           bg="#564C4D",
+                          fg='#FFBF00',
                           width=16,
                           height=8,
                           anchor="center")
@@ -97,6 +98,7 @@ class Window(Frame):
                           textvariable = var,
                           font="Times 64",
                           bg="#564C4D",
+                          fg='#FFBF00',
                           width=16,
                           height=8,
                           anchor="center",)
@@ -136,7 +138,6 @@ root.geometry('%dx%d+%d+%d'% (w, h, x, y))
 
 app = Window(root)
 root.mainloop()
-
 
 
 
